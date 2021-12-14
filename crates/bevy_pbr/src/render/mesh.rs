@@ -210,10 +210,7 @@ impl FromWorld for MeshPipeline {
                 BindGroupLayoutEntry {
                     binding: 3,
                     visibility: ShaderStages::FRAGMENT,
-                    ty: BindingType::Sampler {
-                        comparison: true,
-                        filtering: true,
-                    },
+                    ty: BindingType::Sampler(SamplerBindingType::Comparison),
                     count: None,
                 },
                 // Directional Shadow Texture Array
@@ -231,10 +228,7 @@ impl FromWorld for MeshPipeline {
                 BindGroupLayoutEntry {
                     binding: 5,
                     visibility: ShaderStages::FRAGMENT,
-                    ty: BindingType::Sampler {
-                        comparison: true,
-                        filtering: true,
-                    },
+                    ty: BindingType::Sampler(SamplerBindingType::Comparison),
                     count: None,
                 },
                 // PointLights
@@ -494,7 +488,7 @@ impl SpecializedPipeline for MeshPipeline {
                 front_face: FrontFace::Ccw,
                 cull_mode: Some(Face::Back),
                 polygon_mode: PolygonMode::Fill,
-                clamp_depth: false,
+                unclipped_depth: false,
                 conservative: false,
                 topology: PrimitiveTopology::TriangleList,
                 strip_index_format: None,

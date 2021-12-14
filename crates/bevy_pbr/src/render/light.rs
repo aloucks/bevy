@@ -294,7 +294,7 @@ impl SpecializedPipeline for ShadowPipeline {
                 front_face: FrontFace::Ccw,
                 cull_mode: None,
                 polygon_mode: PolygonMode::Fill,
-                clamp_depth: false,
+                unclipped_depth: false,
                 conservative: false,
             },
             depth_stencil: Some(DepthStencilState {

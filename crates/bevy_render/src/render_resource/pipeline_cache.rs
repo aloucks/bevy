@@ -356,6 +356,7 @@ impl RenderPipelineCache {
                         module,
                         targets,
                     }),
+                multiview: None,
             };
 
             let pipeline = self.device.create_render_pipeline(&descriptor);
